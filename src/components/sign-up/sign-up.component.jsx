@@ -25,12 +25,10 @@ class SignUp extends React.Component {
 		}
 
 		try {
-			//! HIER NOCHMAL user "anschauen"
 			const { user } = await auth.createUserWithEmailAndPassword(
 				email,
 				password
 			);
-			//! displayName ist deshalb in einem Objekt, weil das die Funktion erwartet. Zur Erklärung. durch Object-Destructuring erhalten wir eine Variable, die den Namen der Eigenschaft hat und den Wert, der ihr zugewiesen ist. Wir wollen ein Objekt übergeben und nicht nur den Wert dieser Eigenschaft. Deshalb erstellen wir ein shortHandObjekt, wo eben die Eigenschaft der Variablenname wird und der zugewiesene Wert auch vorhanden ist
 			await createUserProfileDocument(user, { displayName });
 
 			this.setState({
@@ -46,7 +44,8 @@ class SignUp extends React.Component {
 
 	handleChange = (event) => {
 		const { value, name } = event.target;
-		this.setState({ [name]: value });
+		this.setState({ [name]: value }, () => console.log(this.state));
+		// console.log(value, name);
 	};
 
 	render() {
