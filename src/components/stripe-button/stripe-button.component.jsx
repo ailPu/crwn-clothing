@@ -1,7 +1,6 @@
 import React from "react";
 
 import StripeCheckout from "react-stripe-checkout";
-import { createLogger } from "redux-logger";
 
 const StripeCheckoutButton = ({ price }) => {
 	const priceForStripe = price * 100;
