@@ -31,6 +31,10 @@ export const signOutSuccess = () => ({
 	type: UserActionTypes.SIGN_OUT_SUCCESS,
 });
 
+export const checkoutSuccess = () => ({
+	type: UserActionTypes.CHECKOUT_SUCCESS,
+});
+
 export const signOutFailure = (error) => ({
 	type: UserActionTypes.SIGN_OUT_FAILURE,
 	payload: error,

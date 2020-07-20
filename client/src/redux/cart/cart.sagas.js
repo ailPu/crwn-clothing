@@ -11,6 +11,10 @@ export function* onSignOutSuccess() {
 	yield takeLatest(UserActionTypes.SIGN_OUT_SUCCESS, clearCartOnSignout);
 }
 
+export function* onCheckoutSuccess() {
+	yield takeLatest(UserActionTypes.CHECKOUT_SUCCESS, clearCartOnSignout);
+}
+
 export function* cartSagas() {
-	yield all([call(onSignOutSuccess)]);
+	yield all([call(onSignOutSuccess), call(onCheckoutSuccess)]);
 }
