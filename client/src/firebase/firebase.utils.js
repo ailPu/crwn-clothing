@@ -82,6 +82,15 @@ export const getCurrentUser = () => {
 	});
 };
 
+export const getUserCartRef = async (userId) => {
+	const cartDocRef = firestore.doc(`carts/${userId}`);
+	const snapshot = await cartDocRef.get();
+	if (!snapshot.exists) {
+		await cartDocRef.set({ cartItems: [] });
+	}
+	return cartDocRef;
+};
+
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
